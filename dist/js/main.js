@@ -66,14 +66,18 @@
   const scrollto = (el) => {
     let header = select('#header')
     let offset = header.offsetHeight
+    console.log(offset);
+    let header2 = select('#header2')
+    let offset2 = header2.offsetHeight
+    console.log(offset2);
 
-    if (!header.classList.contains('header-scrolled')) {
-      offset -= 120
-    }
+    
 
-    let elementPos = select(el).offsetTop
+    let elementPos = select(el).offsetHeight
+
+    console.log(select(el).offsetHeight);
     window.scrollTo({
-      top: elementPos - offset,
+      top: offset2,
       behavior: 'smooth'
     })
   }

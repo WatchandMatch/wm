@@ -325,6 +325,33 @@
     <!-- Template Main JS File -->
 <script src="dist/js/main.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(function() {
+  $('#myForm').submit(function(e) {
+    e.preventDefault();
+    var name = $('#name').val();
+    var email = $('#email').val();
+	var gender = $('#gender').val();
+    var referans = $('#referans').val();
+    var data = {
+      name: name,
+      email: email,
+	  gender: gender,
+	  referans: referans
+    };
+    $.ajax({
+      type: "POST",
+      url: "https://script.google.com/macros/s/AKfycbwbgLLWXpJ14BJV3v5KyMAR_vkCtQvU5jRCb0dVCR7t3Rq3Zp_VljtSjI1Y82Ca9jBB/exec",
+      data: data,
+      success: function() {
+        alert('Form submitted successfully!');
+      }
+    });
+  });
+});
+</script>
+
 
   
 </html>

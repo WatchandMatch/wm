@@ -66,14 +66,22 @@
   const scrollto = (el) => {
     let header = select('#header')
     let offset = header.offsetHeight
-    console.log(offset);
     let header2 = select('#header2')
     let offset2 = header2.offsetHeight
-    console.log(offset2);
+
+    let header3 = select('#header3')
+    let offset3 = header3.offsetHeight
+
+  
 
     
 
     let elementPos = select(el).offsetHeight
+
+
+  if (window.innerWidth <= 630) {
+    offset2 += offset3;
+  }
 
     console.log(select(el).offsetHeight);
     window.scrollTo({

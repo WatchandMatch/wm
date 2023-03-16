@@ -71,7 +71,7 @@
 					<div class="features-extended-wrap">
 						<div class="container">
 							<div class="feature-extended">
-								<div class="feature-extended-image">
+								<div class="feature-extended-image" >
 									<div class="mockup-bg">
 										<img src="dist/images/iphone-hero-bg.svg" alt="iPhone Feature 01 illustration">
 									</div>
@@ -124,12 +124,20 @@
 										</div>
 										
 									  </div>
-									<div class="form-group">
+									<div class="form-group" id="submitButton">
 										<button type="submit" class="button button-primary">Gönder</button>
 									</div>
+
+									
 									
 									</form>
+
+									<div class="form-group" >
+										<p id="message"></p>
+									</div>
 								</div>
+
+								
 								<div class="feature-extended-body is-revealing">
 									<h3 class="mt-0 mb-16">Amazing features, coming soon.</h3>
 									<p class="m-0">Quam quisque id diam vel quam elementum pulvinar. Ut etiam sit amet nisl purus in mollis nunc. Odio morbi quis commodo odio aenean sed adipiscing diam donec.</p>
@@ -334,18 +342,58 @@ $(function() {
     var email = $('#email').val();
 	var gender = $('#gender').val();
     var referans = $('#referans').val();
+	let selectedGenres = [];
+	let checkboxes = document.getElementsByName('genres[]');
+
+	var generated_referans = '';
+	var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+	var charactersLength = characters.length;
+	for ( var i = 0; i < 8; i++ ) {
+		generated_referans += characters.charAt(Math.floor(Math.random() * charactersLength));
+	}
+
+	console.log(generated_referans);
+
+	for (let i = 0; i < checkboxes.length; i++) {
+	if (checkboxes[i].checked) {
+		selectedGenres.push(document.querySelector(`label[for=${checkboxes[i].id}]`).textContent);
+	}
+	}
+
+	let selectedGenresString = selectedGenres.join(', ');
+
+
+
     var data = {
       name: name,
       email: email,
 	  gender: gender,
-	  referans: referans
+	  referans: referans,
+	  tercihler: selectedGenresString,
+	  generated_referans: generated_referans,
+	  send_first_mail: "FALSE"
     };
     $.ajax({
       type: "POST",
       url: "https://script.google.com/macros/s/AKfycbwbgLLWXpJ14BJV3v5KyMAR_vkCtQvU5jRCb0dVCR7t3Rq3Zp_VljtSjI1Y82Ca9jBB/exec",
       data: data,
-      success: function() {
-        alert('Form submitted successfully!');
+     /* success: function() {
+        alert('Kaydını aldık! Bu referans kodunu arkadaşlarınla paylaşarak onların da ayrcılıklarımızdan faydalanarak aramızda yer almasını sağlayabilirsin:\n\n Referans kodu: ' + generated_referans);
+	}*/
+	success: function() {
+		var message = $('#message');
+
+		message.text('Kaydını aldık! Bu referans kodunu arkadaşlarınla paylaşarak onların da ayrcılıklarımızdan faydalanarak aramızda yer almasını sağlayabilirsin:\n\n Referans kodu: '  + generated_referans)
+		document.getElementById("myForm").style.display = "none";
+		sendEmail();
+
+	},
+      error: function() {
+		var message = $('#message');
+
+		message.text('Bir hata oluştu. Sayfayı yenileyip tekrar deneyiniz.');
+		document.getElementById("myForm").style.visibility = "none";
+
       }
     });
   });

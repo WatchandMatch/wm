@@ -428,7 +428,7 @@ $(function() {
 	success: function() {
 		var message = $('#message');
 
-		message.text('Kaydını aldık! Bu referans kodunu arkadaşlarınla paylaşarak onların da ayrcılıklarımızdan faydalanarak aramızda yer almasını sağlayabilirsin: <br><br> Referans kodu: '  + generated_referans)
+		message.html('Kaydını aldık! Bu referans kodunu arkadaşlarınla paylaşarak onların da ayrcılıklarımızdan faydalanarak aramızda yer almasını sağlayabilirsin: <br> <br> Referans kodu: '  + generated_referans)
 		document.getElementById("myForm").style.display = "none";
 		sendEmail();
 

@@ -87,17 +87,16 @@
 						<div class="container" style="vertical-align: top;">
 							<h3 class="mt-0 mb-16 " style="text-align: center;">İlk Kullanıcılarımızdan Olmaya Davetlisin Çünkü İlkler Asla Unutulmaz</h3>
 
-							<div class="feature-extended" style="vertical-align: top;">
+							<div class="feature-extended" style="vertical-align: top;padding-top: 5px;">
 
 
 								<div id="header3" class="feature-extended-body is-revealing" style="vertical-align: top;padding: 0;">
-									<!--<img src="dist/images/deneme1.png" >-->
+									<img src="dist/images/tac.png" >
 									<div class="mockup-bg">
 										<img src="dist/images/iphone-hero-bg.svg" style="z-index: -1;" alt="iPhone illustration">
 									  </div>
-									<p class="m-0" style="vertical-align: top;color: #000;">Benzersiz bir dünyaya ilk ayak basanlardan biri olmak istiyorsan sadece 30 saniyeni ayırarak formu doldur ve ilk üyelerimizin arasında yerini al! Formu doldurduğunda 1 aylık premium kazanacak, sana özel üretilecek referans koduyla davet ettiğin kişi başına premium süreni 1 hafta uzatacak ve uygulama içindeki herkese gösterebileceğin harika sembollere sahip olabileceksin!</p>
+									<p class="m-0" style="vertical-align: top;color: #000;">Benzersiz bir dünyaya ilk ayak basanlardan biri olmak istiyorsan sadece 30 saniyeni ayırarak formu doldur ve ilk üyelerimizin arasında yerini al! Formu doldurduğunda 1 aylık premium kazanacak, sana özel üretilecek referans koduyla davet ettiğin kişi başına premium süreni 1 hafta uzatacak ve teşekkürlerimizi sunmak için vereceğimiz taç rozetini uygulamanın içindeki profilinde sergileyerek herkese bizi ilk destekleyenlerden olduğunu gösterebileceksin!</p>
 								
-									<img src="dist/images/deneme2.png" style="visibility: hidden;">
 
 								</div>
 
@@ -441,6 +440,11 @@ $(function() {
     var referans = $('#referans').val();
 	let selectedGenres = [];
 	let checkboxes = document.getElementsByName('genres[]');
+
+	document.getElementById("submitButton").style.cursor = "not-allowed";
+
+	document.getElementById("submitButton").style.opacity = 0.5;
+	document.getElementById("submitButton").style.pointerEvents = "none";
 
 	var generated_referans = '';
 	var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';

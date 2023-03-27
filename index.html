@@ -486,6 +486,10 @@ $(function() {
 
 
 
+	var now = new Date();
+	var date = now.getDate() + ":" + (now.getMonth()+1) + ":" + now.getFullYear();
+	var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+	var datetime = time + " " + date;
 
     var data = {
       name: name,
@@ -495,7 +499,7 @@ $(function() {
 	  tercihler: selectedGenresString,
 	  generated_referans: generated_referans,
 	  send_first_mail: "FALSE",
-	  created_time: new Date()
+	  created_time: datetime
     };
     $.ajax({
       type: "POST",

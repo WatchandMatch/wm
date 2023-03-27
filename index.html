@@ -487,10 +487,10 @@ $(function() {
 
 
 	var now = new Date();
-	var date = now.getDate() + ":" + (now.getMonth()+1) + ":" + now.getFullYear();
-	var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+	var date = ("0" + now.getDate()).slice(-2) + ":" + ("0" + (now.getMonth()+1)).slice(-2) + ":" + now.getFullYear();
+	var time = ("0" + now.getHours()).slice(-2) + ":" + ("0" + now.getMinutes()).slice(-2) + ":" + ("0" + now.getSeconds()).slice(-2);
 	var datetime = time + " " + date;
-
+	
     var data = {
       name: name,
       email: email,

@@ -485,7 +485,6 @@ $(function() {
 	let selectedGenresString = selectedGenres.join(', ');
 
 
-	var currentTime = new Date().getTime();
 
 
     var data = {
@@ -496,7 +495,7 @@ $(function() {
 	  tercihler: selectedGenresString,
 	  generated_referans: generated_referans,
 	  send_first_mail: "FALSE",
-	  created_time: currentTime
+	  created_time: new Date()
     };
     $.ajax({
       type: "POST",
